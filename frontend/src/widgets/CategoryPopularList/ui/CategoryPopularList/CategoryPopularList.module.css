@@ -1,0 +1,20 @@
+.item:nth-child(1) {
+  grid-column: col1-start / col2-start;
+  grid-row: row1-start;
+}
+
+.item:nth-child(2) {
+  grid-column: col2-start;
+  grid-row: row1-start / row2-end;
+}
+
+.item:nth-child(3) {
+  grid-column: col1-start / col2-start;
+  grid-row: row2-start;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: [col1-start] 50% [col2-start] 50% [col2-end];
+  grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
+}

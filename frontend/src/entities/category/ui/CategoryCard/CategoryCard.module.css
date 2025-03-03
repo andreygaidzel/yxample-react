@@ -1,0 +1,56 @@
+@import url('/src/shared/breakpoints.css');
+
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  padding: 0px;
+
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  background-color: #7775;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
+
+  @media (--s-viewport) {
+    min-height: 200px;
+  }
+
+  [data-theme='dark'] & {
+    filter: brightness(0.8) contrast(1.2);
+  }
+
+  .root:active & {
+    filter: brightness(93%);
+  }
+}
+
+.title {
+  position: absolute;
+  color: #fff;
+  top: 8px;
+  left: 8px;
+  margin-bottom: 12px;
+  flex-grow: 1;
+
+  display: -webkit-box;
+  padding-top: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

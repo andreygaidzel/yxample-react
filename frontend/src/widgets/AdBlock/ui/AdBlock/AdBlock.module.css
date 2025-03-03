@@ -1,0 +1,15 @@
+@import url('/src/shared/breakpoints.css');
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--alternate-background-color);
+  width: 100%;
+  margin-top: 64px;
+  height: 400px;
+
+  @media (--s-viewport) {
+    margin-top: 0;
+  }
+}

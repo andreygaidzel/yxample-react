@@ -3,6 +3,9 @@ const express = require('express');
 
 const eventRoutes = require('./routes/events');
 const authRoutes = require('./routes/auth');
+const featureToggleRoutes = require('./routes/feature-toggle');
+const categoriesRoutes = require('./routes/categories');
+const productsRoutes = require('./routes/products');
 
 const app = express();
 
@@ -17,6 +20,9 @@ app.use((req, res, next) => {
 app.use(authRoutes);
 
 app.use('/events', eventRoutes);
+app.use('/feature-toggle', featureToggleRoutes);
+app.use('/categories', categoriesRoutes);
+app.use('/products', productsRoutes);
 
 app.use((error, req, res, next) => {
   const status = error.status || 500;

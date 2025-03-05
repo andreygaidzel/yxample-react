@@ -3,8 +3,8 @@ import {
   createSelector,
   createSlice,
 } from '@reduxjs/toolkit'
-import type { Product, ProductId } from '@/entities/product/@x/wishlist'
 import { wishlistApi } from '../api/wishlistApi'
+import { Product, ProductId } from "../../product";
 
 type WishlistSliceState = {
   products: Record<ProductId, boolean>
@@ -22,12 +22,7 @@ export const wishlistSlice = createSlice({
       state.products = {}
     },
     toggleWishlistProduct: (state, action: PayloadAction<ProductId>) => {
-      if (state.products[action.payload]) {
-        state.products[action.payload] = false
-      }
-      else {
-        state.products[action.payload] = true
-      }
+      state.products[action.payload] = !state.products[action.payload];
     },
   },
   extraReducers: (builder) => {

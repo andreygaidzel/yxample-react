@@ -1,4 +1,4 @@
-import type { ProductDto } from '@/entities/product/@x/category'
+import { ProductDto } from "../../product";
 
 export type CategoryDto = {
   id: number

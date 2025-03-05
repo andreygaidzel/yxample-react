@@ -15,7 +15,6 @@ export const categoryApi = baseApi.injectEndpoints({
         url: `/categories/popular`,
       }),
       transformResponse: (response: { features: CategoryDto[] } ) => {
-        console.log(55, response);
         return response.features.map(mapCategory)
       },
     }),

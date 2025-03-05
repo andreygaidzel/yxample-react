@@ -3,9 +3,9 @@ import {
   createSelector,
   createSlice,
 } from '@reduxjs/toolkit'
-import type { Product, ProductId } from '@/entities/product/@x/cart'
 import { cartApi } from '../api/cartApi'
 import type { Cart, CartItem } from './types'
+import { Product } from "../../product";
 
 type CartSliceState = Cart
 

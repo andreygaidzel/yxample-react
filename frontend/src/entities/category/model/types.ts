@@ -1,4 +1,4 @@
-import type { Product } from '@/entities/product/@x/category'
+import { Product } from "../../product";
 
 export type CategoryId = Brand<Id, 'CategoryId'>
 

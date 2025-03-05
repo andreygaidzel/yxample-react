@@ -1,4 +1,5 @@
-import type { Product, ProductId } from '@/entities/product/@x/cart'
+import { Product, ProductId } from "../../product";
+
 
 export type CartItem = {
   product: Product

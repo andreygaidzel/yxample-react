@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import React from 'react'
-import css from './Icon.module.css'
+import css from './Icon.module.scss'
 
 export type IconType =
   | 'bag'

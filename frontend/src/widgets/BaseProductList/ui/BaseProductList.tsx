@@ -5,7 +5,7 @@ import { selectIsAuthorized } from '@/entities/session'
 import { AddToWishlistIcon } from '@/features/wishlist/addToWishlist'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { useAppSelector } from '@/shared/model'
-import css from './BaseProductList.module.css'
+import css from './BaseProductList.module.scss'
 
 type Props<T extends Product> = {
   products: T[]

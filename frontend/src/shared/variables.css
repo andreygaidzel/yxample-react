@@ -10,6 +10,15 @@
   --color-white: #fff;
   --color-dark: #212a2e;
   --color-blue-iris: #543fd7;
+
+  --xs-viewport: 599px;
+  --s-viewport: 767px;
+  --m-viewport: 1023px;
+  --l-viewport: 1439px;
+  --xl-viewport: 1919px;
+
+  --fsd-color: #fff;
+  --fsd-background-color: green;
 }
 
 html[data-theme='light'] {

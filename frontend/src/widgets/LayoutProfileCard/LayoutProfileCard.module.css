@@ -1,5 +1,3 @@
-@import url('/src/shared/breakpoints.css');
-
 .root {
   display: flex;
   gap: 10px;

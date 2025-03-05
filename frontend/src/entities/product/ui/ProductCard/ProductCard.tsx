@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useFeatureSlicedDebug } from '@/shared/lib'
 import { formatPrice } from '../../lib/formatPrice'
 import type { Product } from '../../model/types'
-import css from './ProductCard.module.css'
+import css from './ProductCard.module.scss'
 
 type Props = {
   product: Product

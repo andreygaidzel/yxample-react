@@ -1,5 +1,3 @@
-@import url('/src/shared/breakpoints.css');
-
 .root {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -12,24 +10,24 @@
     opacity: 0.5;
   }
 
-  @media (--xl-viewport) {
+  @media (max-width: var(--xl-viewport)) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 16px 9px;
   }
 
-  @media (--l-viewport) {
+  @media (max-width: var(--l-viewport)) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  @media (--m-viewport) {
+  @media (max-width: var(--m-viewport)) {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  @media (--s-viewport) {
+  @media (max-width: var(--s-viewport)) {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  @media (--xs-viewport) {
+  @media (max-width: var(--xs-viewport)) {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 

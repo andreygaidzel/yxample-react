@@ -1,21 +1,18 @@
-@import url('/src/shared/breakpoints.css');
-
 .root {
   display: flex;
   gap: 38px;
 
-  @media (--m-viewport) {
+  @media (max-width: var(--m-viewport)) {
     flex-direction: column;
   }
 
-  @media (--s-viewport) {
+  @media (max-width: var(--s-viewport)) {
     gap: 16px;
   }
 }
 
 .content {
   flex: 1;
-  flex-grow: 1;
 }
 
 .description {
@@ -41,7 +38,7 @@
   width: 100%;
   gap: 16px;
 
-  @media (--m-viewport) {
+  @media (max-width: var(--m-viewport)) {
     gap: 8px;
   }
 }
@@ -51,7 +48,7 @@
   aspect-ratio: 0.8;
   background-color: var(--alternate-background-color);
 
-  @media (--m-viewport) {
+  @media (max-width: var(--m-viewport)) {
     width: calc(50% - 8px);
   }
 }

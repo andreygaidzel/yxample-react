@@ -32,8 +32,7 @@ function checkAuthMiddleware(req, res, next) {
   }
   const authToken = authFragments[1];
   try {
-    const validatedToken = validateJSONToken(authToken);
-    req.token = validatedToken;
+    req.token = validateJSONToken(authToken);
   } catch (error) {
     console.log('NOT AUTH. TOKEN INVALID.');
     return next(new NotAuthError('Not authenticated.'));

@@ -1,7 +1,7 @@
-import type { FetchBaseQueryMeta } from '@reduxjs/toolkit/dist/query/fetchBaseQuery'
 import type {
   FetchArgs,
   FetchBaseQueryError,
+  FetchBaseQueryMeta,
 } from '@reduxjs/toolkit/query'
 import type {
   BaseQueryApi,

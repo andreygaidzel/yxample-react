@@ -10,8 +10,9 @@ export const widgetProductDetailsApi = baseApi.injectEndpoints({
       query: productId => ({
         url: `/products/${productId}`,
       }),
-      transformResponse: (response: ProductDetailsDto) =>
-        mapProductDetails(response),
+      transformResponse: (response: { product: ProductDetailsDto }) => {
+        return mapProductDetails(response.product);
+      }
     }),
   }),
 })

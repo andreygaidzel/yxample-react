@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { getAll, get, add, replace, remove } = require('../data/categories');
+const { getAll, getProductsByCategoryId, getCategory, add, replace, remove } = require('../data/categories');
 const { checkAuth } = require('../util/auth');
 const {
   isValidText,
@@ -31,9 +31,11 @@ router.get('/popular', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
+  console.log(22, JSON.stringify(req.query));
   try {
-    const feature = await get(req.params.id);
-    res.json({ feature });
+    const products = await getProductsByCategoryId(req.params.id, req.query.sortBy);
+    const category = await getCategory(req.params.id);
+    res.json({ products, category });
   } catch (error) {
     next(error);
   }

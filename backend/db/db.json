@@ -47,7 +47,7 @@
       ]
     },
     {
-      "popular": true,
+      "popular": false,
       "id": 2,
       "name": "Nike Air Force 1 '07",
       "badge": "BEST_SELLER",
@@ -60,7 +60,7 @@
       ]
     },
     {
-      "popular": true,
+      "popular": false,
       "id": 3,
       "name": "Nike Air Max 90",
       "badge": "BEST_SELLER",
@@ -93,7 +93,7 @@
       "description": "Bridge the gap between your weekend training run and race day in a durable design that can be deployed not just at the starting line of your favourite race but in the days and months after your conquest. It offers comfort and reliability but with a propulsive sensation that will help you feel fast and fresh. That kind of versatility isuncommon in the running arena. But who said you can not have it all?"
     },
     {
-      "popular": true,
+      "popular": false,
       "id": 5,
       "name": "Nike Alphafly 2",
       "badge": "JUST_IN",
@@ -106,7 +106,7 @@
       ]
     },
     {
-      "popular": true,
+      "popular": false,
       "id": 6,
       "name": "Nike Streakfly",
       "badge": "JUST_IN",
@@ -119,7 +119,7 @@
       ]
     },
     {
-      "popular": true,
+      "popular": false,
       "id": 7,
       "name": "Nike Zoom Fly 5",
       "badge": "JUST_IN",
@@ -132,7 +132,7 @@
       ]
     },
     {
-      "popular": true,
+      "popular": false,
       "id": 8,
       "name": "LeBron XX",
       "badge": "JUST_IN",
@@ -145,7 +145,7 @@
       ]
     },
     {
-      "popular": true,
+      "popular": false,
       "id": 9,
       "name": "LeBron NXXT Gen",
       "badge": "IN_STOCK",

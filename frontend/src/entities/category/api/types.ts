@@ -6,7 +6,8 @@ export type CategoryDto = {
   imageUrl: string[]
 }
 
-export type CategoryWithProductsDto = CategoryDto & {
+export type CategoryWithProductsDto = {
+  category: CategoryDto
   products: ProductDto[]
 }
 

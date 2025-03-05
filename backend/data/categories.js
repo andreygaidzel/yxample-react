@@ -11,18 +11,39 @@ async function getAll() {
   return storedData.categories;
 }
 
-async function get(id) {
+async function getProductsByCategoryId(id, sortKey) {
+  const storedData = await readData();
+  if (!storedData.products || storedData.products.length === 0) {
+    throw new NotFoundError('Could not find any products.');
+  }
+
+  const products = storedData.products.filter((product) => product.categoryId === +id);
+  if (!products) {
+    throw new NotFoundError('Could not find products for id ' + id);
+  }
+
+  const fn = {
+    'Featured': (a, b) => +a.popular - +b.popular,
+    'Newest': (a, b) => Math.random() - Math.random(),
+    'PriceHighLow': (a, b) => b.price - a.price,
+    'PriceLowHigh': (a, b) => a.price - b.price,
+  }
+
+  return sortKey ? products.sort(fn[sortKey]) : products;
+}
+
+async function getCategory(id) {
   const storedData = await readData();
   if (!storedData.categories || storedData.categories.length === 0) {
     throw new NotFoundError('Could not find any categories.');
   }
 
-  const event = storedData.categories.find((ev) => ev.id === id);
-  if (!event) {
+  const category = storedData.categories.find((c) => c.id === +id);
+  if (!category) {
     throw new NotFoundError('Could not find categories for id ' + id);
   }
 
-  return event;
+  return category;
 }
 
 async function add(data) {
@@ -54,7 +75,8 @@ async function remove(id) {
 }
 
 exports.getAll = getAll;
-exports.get = get;
+exports.getProductsByCategoryId = getProductsByCategoryId;
+exports.getCategory = getCategory;
 exports.add = add;
 exports.replace = replace;
 exports.remove = remove;

@@ -7,7 +7,7 @@ export function mapCategoryWithProducts(
   dto: CategoryWithProductsDto,
 ): CategoryWithProducts {
   return {
-    ...mapCategory(dto),
+    ...mapCategory(dto.category),
     products: dto.products.map(productDto => mapProduct(productDto)),
   }
 }

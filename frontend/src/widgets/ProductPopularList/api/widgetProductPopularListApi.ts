@@ -8,7 +8,9 @@ export const widgetProductPopularListApi = baseApi.injectEndpoints({
       query: () => ({
         url: `/products/popular`,
       }),
-      transformResponse: (response: { products: ProductDto[] } ) => response.products.map(mapProduct),
+      transformResponse: (response: { products: ProductDto[] } ) => {
+        return response.products.map(mapProduct)
+      },
     }),
   }),
 })

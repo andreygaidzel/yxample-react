@@ -26,8 +26,9 @@ export const categoryApi = baseApi.injectEndpoints({
         url: `/categories/${categoryId}`,
         params: { sortBy, delay: 400 },
       }),
-      transformResponse: (response: CategoryWithProductsDto) =>
-        mapCategoryWithProducts(response),
+      transformResponse: (response: CategoryWithProductsDto) => {
+        return mapCategoryWithProducts(response);
+      }
     }),
   }),
 })

@@ -11,18 +11,26 @@ async function getAll() {
   return storedData.products;
 }
 
+async function getPopularProducts() {
+  const storedData = await readData();
+  if (!storedData.products) {
+    throw new NotFoundError('Could not find any products.');
+  }
+  return storedData.products.filter(p => p.popular);
+}
+
 async function get(id) {
   const storedData = await readData();
   if (!storedData.products || storedData.products.length === 0) {
     throw new NotFoundError('Could not find any products.');
   }
 
-  const event = storedData.products.find((ev) => ev.id === id);
-  if (!event) {
+  const product = storedData.products.find((ev) => ev.id === +id);
+  if (!product) {
     throw new NotFoundError('Could not find products for id ' + id);
   }
 
-  return event;
+  return product;
 }
 
 async function add(data) {
@@ -54,6 +62,7 @@ async function remove(id) {
 }
 
 exports.getAll = getAll;
+exports.getPopularProducts = getPopularProducts;
 exports.get = get;
 exports.add = add;
 exports.replace = replace;

@@ -1,6 +1,6 @@
 const express = require('express');
 
-const { getAll, get, add, replace, remove } = require('../data/categories');
+const { getAll, getPopularProducts, get, add, replace, remove } = require('../data/products');
 const { checkAuth } = require('../util/auth');
 const {
   isValidText,
@@ -11,7 +11,6 @@ const {
 const router = express.Router();
 
 router.get('/', async (req, res, next) => {
-  console.log(req.token);
   try {
     const products = await getAll();
     res.json({ products });
@@ -21,9 +20,8 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/popular', async (req, res, next) => {
-  console.log(req.token);
   try {
-    const products = await getAll();
+    const products = await getPopularProducts();
     res.json({ products: products });
   } catch (error) {
     next(error);
@@ -32,8 +30,8 @@ router.get('/popular', async (req, res, next) => {
 
 router.get('/:id', async (req, res, next) => {
   try {
-    const products = await get(req.params.id);
-    res.json({ products });
+    const product = await get(req.params.id);
+    res.json({ product });
   } catch (error) {
     next(error);
   }
@@ -42,7 +40,6 @@ router.get('/:id', async (req, res, next) => {
 router.use(checkAuth);
 
 router.post('/', async (req, res, next) => {
-  console.log(req.token);
   const data = req.body;
 
   let errors = {};

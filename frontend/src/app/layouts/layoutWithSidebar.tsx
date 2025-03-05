@@ -6,14 +6,6 @@ import { LayoutProfileCard } from '@/widgets/LayoutProfileCard'
 
 export const layoutWithSidebar = (
   <Layout
-    announcementSlot={(
-      <Announcement>
-        <span>
-          🚀&nbsp;&nbsp;An&nbsp;open source frontend application built with
-          React and Feature-Sliced&nbsp;Design.
-        </span>
-      </Announcement>
-    )}
     bottomSlot={<DebugModeToggler />}
     sidebarSlot={<AdBlock />}
     headerSlot={<LayoutHeader rightContentSlot={<LayoutProfileCard />} />}

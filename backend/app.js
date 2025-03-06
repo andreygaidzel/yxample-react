@@ -5,6 +5,7 @@ const authRoutes = require('./routes/auth');
 const featureToggleRoutes = require('./routes/feature-toggle');
 const categoriesRoutes = require('./routes/categories');
 const productsRoutes = require('./routes/products');
+const meRoutes = require('./routes/me');
 
 const app = express();
 
@@ -21,6 +22,8 @@ app.use(authRoutes);
 app.use('/feature-toggle', featureToggleRoutes);
 app.use('/categories', categoriesRoutes);
 app.use('/products', productsRoutes);
+
+app.use(meRoutes);
 
 app.use((error, req, res) => {
   const status = error.status || 500;

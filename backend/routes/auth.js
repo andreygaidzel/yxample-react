@@ -17,7 +17,8 @@ router.post('/signup', async (req, res, next) => {
       if (existingUser) {
         errors.email = 'Email exists already.';
       }
-    } catch (error) {}
+    } catch (error) {
+    }
   }
 
   if (!isValidText(data.password, 6)) {
@@ -61,8 +62,13 @@ router.post('/login', async (req, res) => {
     });
   }
 
-  const token = createJSONToken(email);
-  res.json({ token });
+  const accessToken = createJSONToken(email);
+  res.json({
+    accessToken, user: {
+      id: user.id,
+      email
+    }
+  });
 });
 
 module.exports = router;

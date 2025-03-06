@@ -12,7 +12,9 @@ export const sessionApi = baseApi.injectEndpoints({
         body,
       }),
       invalidatesTags: [SESSION_TAG, WISHLIST_TAG],
-      transformResponse: (response: SessionDto) => mapSession(response),
+      transformResponse: (response: SessionDto) => {
+        return mapSession(response);
+      },
     }),
   }),
 })

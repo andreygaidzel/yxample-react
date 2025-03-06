@@ -1,4 +1,4 @@
-const { sign, verify } = require('jsonwebtoken');
+const { sign, verify, decode } = require('jsonwebtoken');
 const { compare } = require('bcryptjs');
 const { NotAuthError } = require('./errors');
 
@@ -10,6 +10,10 @@ function createJSONToken(email) {
 
 function validateJSONToken(token) {
   return verify(token, KEY);
+}
+
+function decodeJSONToken(token) {
+  return decode(token, KEY);
 }
 
 function isValidPassword(password, storedPassword) {
@@ -41,6 +45,7 @@ function checkAuthMiddleware(req, res, next) {
 }
 
 exports.createJSONToken = createJSONToken;
+exports.decodeJSONToken = decodeJSONToken;
 exports.validateJSONToken = validateJSONToken;
 exports.isValidPassword = isValidPassword;
 exports.checkAuth = checkAuthMiddleware;

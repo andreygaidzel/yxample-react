@@ -10,7 +10,7 @@ export const userApi = baseApi.injectEndpoints({
         url: `/me`,
       }),
       providesTags: [USER_TAG],
-      transformResponse: (response: UserDto) => mapUser(response),
+      transformResponse: (response: { user: UserDto }) => mapUser(response.user),
     }),
   }),
 })

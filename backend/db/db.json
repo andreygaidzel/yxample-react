@@ -3,7 +3,17 @@
     {
       "email": "agaidel@qweqwe.com",
       "password": "$2a$12$nw8.CZa4FWq8UjOC6aEACe7ta5T4wf4o.VlfcrYpdtqIC4YZW7vFq",
-      "id": "9fadb0ec-2bca-4ee4-bbbf-dcfc7b98105e"
+      "id": "9fadb0ec-2bca-4ee4-bbbf-dcfc7b98105e",
+      "cart": {
+        "cartItems": [
+          {
+            "productId": 1,
+            "quantity": 1
+          }
+        ],
+        "deliveryPrice": 100,
+        "version": 1
+      }
     }
   ],
   "categories": [

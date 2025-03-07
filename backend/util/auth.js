@@ -16,6 +16,20 @@ function decodeJSONToken(token) {
   return decode(token, KEY);
 }
 
+function getEmailFromToken(authToken) {
+  const [, token] = authToken.split(' ');
+
+  let email;
+  try {
+    const tokenData = decodeJSONToken(token);
+    email = tokenData.email;
+  } catch (error) {
+    console.log('wrong Token');
+  }
+
+  return email;
+}
+
 function isValidPassword(password, storedPassword) {
   return compare(password, storedPassword);
 }
@@ -46,6 +60,7 @@ function checkAuthMiddleware(req, res, next) {
 
 exports.createJSONToken = createJSONToken;
 exports.decodeJSONToken = decodeJSONToken;
+exports.getEmailFromToken = getEmailFromToken;
 exports.validateJSONToken = validateJSONToken;
 exports.isValidPassword = isValidPassword;
 exports.checkAuth = checkAuthMiddleware;

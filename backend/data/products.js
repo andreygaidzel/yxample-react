@@ -55,6 +55,17 @@ async function replace(id, data) {
   await writeData(storedData);
 }
 
+async function getProductById(id) {
+  let product;
+  try {
+    product = await get(id);
+  } catch (error) {
+    return res.status(404).json({ message: 'Product not found' });
+  }
+
+  return product;
+}
+
 async function remove(id) {
   const storedData = await readData();
   const updatedData = storedData.products.filter((ev) => ev.id !== id);
@@ -63,6 +74,7 @@ async function remove(id) {
 
 exports.getAll = getAll;
 exports.getPopularProducts = getPopularProducts;
+exports.getProductById = getProductById;
 exports.get = get;
 exports.add = add;
 exports.replace = replace;

@@ -30,5 +30,52 @@ async function get(email) {
   return user;
 }
 
+async function getUserByEmail(email) {
+  let user;
+  try {
+    user = await get(email);
+  } catch (error) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+
+  return user;
+}
+
+async function replaceUserWishList(email, arrayIds) {
+  const storedData = await readData();
+  if (!storedData.users || storedData.users.length === 0) {
+    throw new NotFoundError('Could not find any users.');
+  }
+
+  const index = storedData.users.findIndex((user) => user.email === email);
+  if (index < 0) {
+    throw new NotFoundError('Could not find user for email ' + email);
+  }
+
+  storedData.users[index].wishlist = [...arrayIds];
+
+  await writeData(storedData);
+}
+
+async function updateUserCart(email, cart) {
+  const storedData = await readData();
+  if (!storedData.users || storedData.users.length === 0) {
+    throw new NotFoundError('Could not find any users.');
+  }
+
+  const index = storedData.users.findIndex((user) => user.email === email);
+  if (index < 0) {
+    throw new NotFoundError('Could not find user for email ' + email);
+  }
+
+  storedData.users[index].cart.cartItems = [ ...cart.items];
+  storedData.users[index].cart.version = cart.version;
+
+  await writeData(storedData);
+}
+
 exports.add = add;
 exports.get = get;
+exports.getUserByEmail = getUserByEmail;
+exports.replaceUserWishList = replaceUserWishList;
+exports.updateUserCart = updateUserCart;

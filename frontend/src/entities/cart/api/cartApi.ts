@@ -10,7 +10,9 @@ export const cartApi = baseApi.injectEndpoints({
         url: `/cart`,
       }),
       providesTags: [CART_TAG],
-      transformResponse: (response: CartDto) => mapCart(response),
+      transformResponse: (response: { cart: CartDto }) => {
+        return mapCart(response.cart);
+      },
     }),
     updateCart: build.mutation<object, { items: CartItemDto[], version: number }>({
       query: ({ items, version }) => ({

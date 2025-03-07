@@ -10,7 +10,9 @@ export const wishlistApi = baseApi.injectEndpoints({
         url: `/wishlist/products`,
       }),
       providesTags: [WISHLIST_TAG],
-      transformResponse: (response: WishlistDto) => mapWishlist(response),
+      transformResponse: (response: { wishlist: WishlistDto } ) => {
+        return mapWishlist(response.wishlist);
+      },
     }),
     addToWishlist: build.mutation<object, number[]>({
       query: productsInWishlistIds => ({
